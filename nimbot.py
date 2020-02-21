@@ -22,10 +22,8 @@ async def dicebattle(ctx,a:int,b:int,c:int,d:int,e:int,f:int,ai_num:int):
     score = {"Your_Dice": 0, "Tie": 0, "AI_Dice": 0}
     ai_dice = random.sample(range(ai_num), 6)
     die_a = [a,b,c,d,e,f]
-    print(ai_dice,die_a)
     dx = random.choice(die_a)
     dy = random.choice(ai_dice)
-    print(f"Your Roll: {dx}| AI Roll: {dy}")
     if dx > dy:
         score["Your_Dice"] += 1
     elif dx < dy:
@@ -35,9 +33,9 @@ async def dicebattle(ctx,a:int,b:int,c:int,d:int,e:int,f:int,ai_num:int):
     k = max(score.values())
     c = (list(score.keys())[list(score.values()).index(k)])
     if c == "Tie":
-        await ctx.send(f"Oh Wow, Its Basically a {c}!")
+        await ctx.send(f"Your Roll: {dx}| AI Roll: {dy}   Oh Wow, Its Basically a {c}!")
     else:
-        await ctx.send(f"Damn, {c} Wins!")
+        await ctx.send(f"Your Roll: {dx}| AI Roll: {dy}   Damn, {c} Wins!")
 
 bot.run(token)
 
